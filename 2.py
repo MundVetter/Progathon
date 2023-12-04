@@ -3,7 +3,7 @@ _, m = list(map(float, input().split()))
 numbers = list(map(float, input().split()))
 numbers.sort(reverse=True)
 
-print(len(numbers))
+# print(len(numbers))
 # create a tree of all options
 # two options yes or no and two outcomes
 tree = defaultdict(lambda: 0)
@@ -21,9 +21,9 @@ for i in range(len(numbers)):
     # calculate prob we of having at least m wins, check if prob is higher than pass_m_prob
     # replace tree with current and pass_m_prob with new prob
     prob = 0
-    for value in current:
-        if value[0] >= m:
-            prob += value[1]
+    for key, value in current.items():
+        if key >= m:
+            prob += value
     # print(prob, past_prob, tree, current)
         # total_outcomes += value[1]
     if prob >= prob_best:
